@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éloän Lavergne - Technicien en soutien informatique</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Icônes pour le menu et le bouton mode sombre -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <a href="#profil">Profil</a>
+        <a href="#formation">Formation</a>
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <button id="btn-dark-mode" title="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <div class="container">
+        <header>
+            <!-- L'image sera insérée ici plus tard -->
+            <img src="photo-eloan.jpg" alt="Éloän Lavergne" class="profile-pic" id="photo-profil" style="display: none;">
+            
+            <h1>ÉLOÄN LAVERGNE</h1>
+            <h2>Technicien en Soutien Informatique</h2>
+
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Région de Montréal</p>
+                <p><i class="fas fa-envelope"></i> eloan.lavergne@email.com</p>
+                <!-- Le lien vers le fichier PDF que tu vas créer -->
+                <a href="CV_Eloan_Lavergne.pdf" download class="btn-download"><i class="fas fa-file-pdf"></i> Télécharger mon CV (PDF)</a>
+            </div>
+        </header>
+
+        <section id="profil" class="card">
+            <h3><i class="fas fa-user-tie"></i> Objectif Professionnel</h3>
+            <p>Technicien en soutien informatique polyvalent et rigoureux, à la recherche d'une opportunité pour mettre en pratique de solides compétences techniques acquises lors d'une formation spécialisée. Orienté vers la résolution de problèmes et l'excellence du service à la clientèle, avec une forte capacité d'adaptation aux environnements technologiques évolutifs.</p>
+        </section>
+
+        <section id="formation" class="card">
+            <h3><i class="fas fa-graduation-cap"></i> Formation</h3>
+            <div class="item">
+                <h4>DEP en Soutien informatique</h4>
+                <p class="date">CFP des Carrefours, Verdun (QC) | Obtention prévue : Décembre 2026</p>
+                <ul>
+                    <li><strong>Infrastructures et systèmes :</strong> Déploiement et configuration de réseaux locaux, administration de serveurs et gestion des accès via Active Directory, virtualisation d'environnements (Proxmox, VMware), commandes systèmes et scripts (Python, PowerShell).</li>
+                    <li><strong>Soutien et exploitation :</strong> Diagnostic matériel et rétablissement de postes de travail, gestion d'appareils avec Microsoft Intune, déploiement centralisé de logiciels, configuration de téléphonie IP.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="competences" class="card">
+            <h3><i class="fas fa-tools"></i> Compétences Techniques</h3>
+            <ul class="skills-list">
+                <li><strong>Systèmes d'exploitation :</strong> Windows 10/11, Windows Server, macOS, Linux (Debian, Ubuntu)</li>
+                <li><strong>Réseautique :</strong> Adressage IP, DHCP/DNS, routage de base, segmentation réseau, Cisco Packet Tracer</li>
+                <li><strong>Outils et Billetterie :</strong> Jira Service Desk, GLPI, ServiceNow, Microsoft Entra ID (Azure AD)</li>
+                <li><strong>Matériel :</strong> Assemblage, diagnostic, réparation de composants matériels et configuration de périphériques</li>
+            </ul>
+        </section>
+
+        <section id="experience" class="card">
+            <h3><i class="fas fa-briefcase"></i> Expérience Professionnelle</h3>
+            <div class="item">
+                <h4>Technicien de niveau 1 (Stage)</h4>
+                <p class="date">Entreprise à déterminer | 2026</p>
+                <ul>
+                    <li>Prise en charge des requêtes des utilisateurs via le système de billetterie en respectant les accords de niveau de service (SLA).</li>
+                    <li>Diagnostic et résolution de pannes matérielles et logicielles sur les postes de travail et périphériques d'impression.</li>
+                    <li>Création de comptes utilisateurs et attribution des droits d'accès sécurisés.</li>
+                    <li>Rédaction de documentation technique et de procédures pour la base de connaissances interne.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Script pour le mode sombre
+        const btnDarkMode = document.getElementById('btn-dark-mode');
+        const body = document.body;
+        const icon = btnDarkMode.querySelector('i');
+
+        // Vérifie si l'utilisateur avait déjà choisi le mode sombre
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        btnDarkMode.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>
+
